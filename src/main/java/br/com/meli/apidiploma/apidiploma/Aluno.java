@@ -34,10 +34,13 @@ public class Aluno {
             somaNotas+=d.getNota();
         }
         Double media = somaNotas/this.disciplinas.size();
-        if (media > 9) {
-            System.out.println("PARABÉNS!! Sua média foi: " + media);
-        }
-        System.out.println("Sua média foi: " + media);
         return media;
+    }
+
+    public String escreverMensagem() {
+        if (this.calcularMedia() > 9) {
+            return "PARABÉNS!! Sua média foi: " + this.calcularMedia();
+        }
+        return "Sua média foi: " + this.calcularMedia();
     }
 }

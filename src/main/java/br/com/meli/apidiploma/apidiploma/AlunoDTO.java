@@ -7,11 +7,13 @@ public class AlunoDTO {
     private String nome;
     private List<Disciplina> disciplinas;
     private Double media;
+    private String mensagem;
 
-    public AlunoDTO(String nome, List<Disciplina> disciplinas, Double media) {
+    public AlunoDTO(String nome, List<Disciplina> disciplinas, Double media, String mensagem) {
         this.nome = nome;
         this.disciplinas = disciplinas;
         this.media = media;
+        this.mensagem = mensagem;
     }
 
     public String getNome() {
@@ -36,5 +38,13 @@ public class AlunoDTO {
 
     public void setMedia(Double media) {
         this.media = media;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 }

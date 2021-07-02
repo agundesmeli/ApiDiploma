@@ -12,7 +12,7 @@ public class ApiDiplomaController {
     @RequestMapping("/{nome}")
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<?> obterDiploma(@RequestBody Aluno aluno) {
-        AlunoDTO alunoDTO = new AlunoDTO(aluno.getNome(), aluno.getDisciplinas(), aluno.calcularMedia());
+        AlunoDTO alunoDTO = new AlunoDTO(aluno.getNome(), aluno.getDisciplinas(), aluno.calcularMedia(), aluno.escreverMensagem());
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoDTO);
     }
 }
