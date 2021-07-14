@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ApiDiplomaService {
 
-    public Double calculateAverage(List<SubjectDTO> subjects) {
+    public double calculateAverage(List<SubjectDTO> subjects) {
         double sumNotes = 0.0;
         for (SubjectDTO s : subjects) {
             sumNotes+=s.getNote();
@@ -30,9 +30,8 @@ public class ApiDiplomaService {
     }
 
     public DiplomaDTO writeDiploma(StudentDTO studentDTO) {
-        String message = null;
         double average = calculateAverage(studentDTO.getSubjects());
-        message = withHonors(studentDTO.getSubjects());
+        String message = withHonors(studentDTO.getSubjects());
         return new DiplomaDTO(message, average, studentDTO.getName(), studentDTO.getSubjects());
     }
 }

@@ -21,6 +21,9 @@ public class StudentDTO {
         this.subjects = subjects;
     }
 
+    public StudentDTO() {
+    }
+
     public String getName() {
         return name;
     }
