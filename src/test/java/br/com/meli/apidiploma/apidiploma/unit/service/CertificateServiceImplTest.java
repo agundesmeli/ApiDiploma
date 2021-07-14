@@ -1,14 +1,11 @@
 package br.com.meli.apidiploma.apidiploma.unit.service;
 
-import br.com.meli.apidiploma.apidiploma.dto.StudentDTO;
 import br.com.meli.apidiploma.apidiploma.dto.SubjectDTO;
 import br.com.meli.apidiploma.apidiploma.service.ApiDiplomaService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Executable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +44,20 @@ public class CertificateServiceImplTest {
 
         //Assert
         Assertions.assertTrue(message.contains("PARABÉNS!!"));
+    }
+
+    @Test
+    public void shouldReturnMessageWithoutHonors() {
+        //Arrange
+        SubjectDTO s1 = new SubjectDTO("Programação Orientada a Objetos", 4);
+        SubjectDTO s2 = new SubjectDTO("Estrutura de Dados", 3);
+        this.subjects = new ArrayList<>(Arrays.asList(s1, s2));
+
+        //Act
+        String message = service.withHonors(subjects);
+
+        //Assert
+        Assertions.assertFalse(message.contains("PARABÉNS!!"));
     }
 
 
